@@ -21,20 +21,20 @@ function setup_hosts {
   for host in $HOSTS
     do echo "Fixing host $host";
     # Vagrant rsync isn't reliable enough -64 hosts sometimes has some fail.. so just scp the scripts over to make sure
-    . /root/testarossa/scripts/scale/fix_scripts.sh $host
-    . /root/testarossa/scripts/scale/fix_boot.sh $host
+    . /home/test/testarossa/scripts/scale/fix_scripts.sh $host
+    . /home/test/testarossa/scripts/scale/fix_boot.sh $host
     ssh -F $SSH_CONFIG_FILE $host "/scripts/scale/rename_self.sh $host; /scripts/scale/fix_networking.sh; /scripts/scale/assign_license.sh";
   done
   echo $HOSTS
 
   # Pool the hosts together
-   . /root/testarossa/scripts/scale/pool_hosts.sh $HOSTS
+   . /home/test/testarossa/scripts/scale/pool_hosts.sh $HOSTS
 
   echo "Pausing 15s to allow the hosts to join pool and be reachable"
   sleep 15s
 
   # Enable HA
-  # . /root/testarossa/scripts/scale/setup_ha.sh $HOSTS
+  # . /home/test/testarossa/scripts/scale/setup_ha.sh $HOSTS
 }
 
 function setup_small {

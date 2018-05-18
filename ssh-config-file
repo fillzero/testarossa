@@ -1,0 +1,24 @@
+Host small1
+  HostName 169.254.0.2
+  User vagrant
+  Port 22
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /home/test/testarossa/.vagrant/machines/small1/xenserver/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+  ProxyCommand ssh '10.71.216.154' -l 'root' -W %h:%p
+
+Host small2
+  HostName 169.254.0.3
+  User vagrant
+  Port 22
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /home/test/testarossa/.vagrant/machines/small2/xenserver/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+  ProxyCommand ssh '10.71.216.154' -l 'root' -W %h:%p
+

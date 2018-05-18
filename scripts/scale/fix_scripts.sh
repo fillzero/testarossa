@@ -4,4 +4,4 @@
 
 SSH_CONFIG_FILE='ssh-config-file'
 
-scp -F $SSH_CONFIG_FILE -r -q /root/testarossa/scripts $1:/
+scp -F $SSH_CONFIG_FILE -r -q /home/test/testarossa/scripts $1:/
